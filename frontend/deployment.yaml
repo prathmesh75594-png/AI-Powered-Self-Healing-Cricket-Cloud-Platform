@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cricket-api
+  name: cricket-frontend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: cricket-api
+      app: cricket-frontend
   template:
     metadata:
       labels:
-        app: cricket-api
+        app: cricket-frontend
     spec:
       containers:
-        - name: cricket-api
-          image: cricket-api:1.1
+        - name: cricket-frontend
+          image: cricket-frontend:1.0
           imagePullPolicy: Never
           ports:
-            - containerPort: 5000
+            - containerPort: 80
