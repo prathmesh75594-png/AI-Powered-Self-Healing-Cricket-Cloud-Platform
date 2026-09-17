@@ -2,8 +2,10 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 import time
 from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
+from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
 CORS(app)
 
 START_TIME = time.time()
